@@ -1,6 +1,6 @@
 def create_classes(db):
-    class Pet(db.Model):
-        __tablename__ = 'pets'
+    class Country(db.Model):
+        __tablename__ = 'countries'
 
         id = db.Column(db.Integer, primary_key=True)
         name = db.Column(db.String(64))
@@ -8,5 +8,5 @@ def create_classes(db):
         lon = db.Column(db.Float)
 
         def __repr__(self):
-            return '<Pet %r>' % (self.name)
-    return Pet
+            return '<Country %r>' % (self.name)
+    return Country

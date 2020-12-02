@@ -25,7 +25,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-Happy = create_classes(db)
+Country = create_classes(db)
 
 # create route that renders index.html template
 @app.route("/")
@@ -37,21 +37,21 @@ def home():
 @app.route("/send", methods=["GET", "POST"])
 def send():
     if request.method == "POST":
-        name = request.form["petName"]
-        lat = request.form["petLat"]
-        lon = request.form["petLon"]
+        name = request.form["countryName"]
+        lat = request.form["countryLat"]
+        lon = request.form["countryLon"]
 
-        pet = Pet(name=name, lat=lat, lon=lon)
-        db.session.add(pet)
+        happiness = Country(name=name, lat=lat, lon=lon)
+        db.session.add(happiness)
         db.session.commit()
         return redirect("/", code=302)
 
     return render_template("form.html")
 
 
-@app.route("/api/pals")
-def pals():
-    results = db.session.query(Pet.name, Pet.lat, Pet.lon).all()
+@app.route("/api/map")
+def happy_map():
+    results = db.session.query(Country.name, Country.lat, Country.lon).all()
 
     hover_text = [result[0] for result in results]
     lat = [result[1] for result in results]
