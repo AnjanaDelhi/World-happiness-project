@@ -1,3 +1,4 @@
 ```
-1 add lat and lon to for each country
+1 done - add lat and lon to for each country
+
 ```
