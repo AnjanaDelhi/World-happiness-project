@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pet Form</title>
+    <title>World Happiness Form</title>
 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
@@ -25,23 +25,23 @@
     <body>
         <div class="container">
             <div class="jumbotron" style="text-align: center">
-                <h1>Pet Pal</h1>
-                <p>Enter your pet's details below!</p>
+                <h1>World Happiness</h1>
+                <p>Enter the country details below!</p>
             </div>
             <div class="row">
                 <div class="col-md-offset-2 col-md-8">
                     <form method="POST" action="/send" role="form", name="petform">
                         <div class="form-group">
-                            <label for="inputName">Pet Name</label>
-                            <input type="text" class="form-control" id="inputName" name="petName" placeholder="Name">
+                            <label for="inputName">Country Name</label>
+                            <input type="text" class="form-control" id="inputName" name="countryName" placeholder="Name">
                         </div>
                         <div class="form-group">
-                            <label for="inputLat">Pet Location Lat</label>
-                            <input type="text" class="form-control" id="inputLat" name="petLat" placeholder="Lat">
+                            <label for="inputLat">Country Location Lat</label>
+                            <input type="text" class="form-control" id="inputLat" name="countryLat" placeholder="Lat">
                         </div>
                         <div class="form-group">
-                            <label for="inputLon">Pet Location Lon</label>
-                            <input type="text" class="form-control" id="inputLon" name="petLon" placeholder="Lon">
+                            <label for="inputLon">Country Location Lon</label>
+                            <input type="text" class="form-control" id="inputLon" name="countryLon" placeholder="Lon">
                         </div>
                         <input type="submit" value="submit" class="btn btn-default">
                     </form>
