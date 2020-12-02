@@ -1,6 +1,6 @@
 function buildPlot() {
   /* data route */
-  const url = "/api/pals";
+  const url = "/api/country";
   d3.json(url).then(function(response) {
 
     console.log(response);
@@ -9,7 +9,7 @@ function buildPlot() {
 
     const layout = {
       scope: "usa",
-      title: "Pet Pals",
+      title: "World Happiness",
       showlegend: false,
       height: 600,
             // width: 980,

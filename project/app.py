@@ -57,7 +57,7 @@ def happy_map():
     lat = [result[1] for result in results]
     lon = [result[2] for result in results]
 
-    pet_data = [{
+    country_data = [{
         "type": "scattergeo",
         "locationmode": "USA-states",
         "lat": lat,
@@ -73,7 +73,7 @@ def happy_map():
         }
     }]
 
-    return jsonify(pet_data)
+    return jsonify(country_data)
 
 
 if __name__ == "__main__":
