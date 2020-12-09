@@ -7,6 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>World Happiness!</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+
+    
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+    <style type="text/css">
+        .leaflet-container{background-color:#c5e8ff;}
+    </style>
 </head>
 
 <body>
@@ -28,12 +35,21 @@
                 <h2><a href="/send">Select country</a></h2>
             </div>
         </div>
+
+        <!-- The div where we will inject our map -->
+        <div id="map"></div>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
-
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <!-- Our JS -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='js/app.js') }}"></script> -->
 </body>
 
 </html>
