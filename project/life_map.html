@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet GeoJSON Example</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+    <style type="text/css">
+        .leaflet-container{background-color:#c5e8ff;}
+    </style>
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+</head>
+
+<body>
+    <div id="lifemap" style="width: 1000px; height: 800px"></div>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+    <!-- <script>
+        var myGeoJSONPath = 'custom.geo.json';
+        var myCustomStyle = {
+            stroke: false,
+            fill: true,
+            fillColor: '#fff',
+            fillOpacity: 1
+        }
+        $.getJSON(myGeoJSONPath,function(data){
+            var map = L.map('lifemap').setView([39.74739, -105], 4);-->
+<!-- 
+            L.geoJson(data, {
+                clickable: false,
+                style: myCustomStyle
+            }).addTo(map);
+        }) 
+    </script> -->
+    <!--Chloropleth-->
+    <!-- Leaflet JS-->
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- Leaflet-Choropleth JavaScript -->
+    <script type="text/javascript" src="static/js/choropleth.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="static/js/app.js"></script>
+</body>
+</html>
