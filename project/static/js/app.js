@@ -37,7 +37,7 @@
 
 function lifeExpectancy() {
   console.log("text");
-  Plotly.d3.csv('WHR20_FinalData.csv', function(err, rows){
+  Plotly.d3.json('/api/life_map', function(err, rows){
         console.log(rows);
         function unpack(rows, key) {
             return rows.map(function(row) { return row[key]; });
@@ -46,9 +46,9 @@ function lifeExpectancy() {
       var data = [{
           type: 'choropleth',
           locationmode: 'country names',
-          locations: unpack(rows, 'Country name'),
-          z: unpack(rows, 'Healthy life expectancy'),
-          text: unpack(rows, 'Country name'),
+          locations: rows[0]['country name'], 
+          z: rows[0]['life expectancy'],
+          text: rows[0]['country name'],
           autocolorscale: true
       }];
       console.log(data);
