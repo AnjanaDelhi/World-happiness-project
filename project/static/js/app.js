@@ -34,6 +34,7 @@
   // buildPlot();
 
 //life expectancy
+
 function lifeExpectancy() {
   console.log("text");
   Plotly.d3.csv('WHR20_FinalData.csv', function(err, rows){
