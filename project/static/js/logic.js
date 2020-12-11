@@ -4,14 +4,14 @@ var myMap = L.map("map", {
     zoom: 1,
   });
 
-d3.csv("./static/WHR20_columns_fixed.csv").then(function(wh_data, err) {
+d3.json("/api/happy_map").then(function(wh_data, err) {
     if (err) throw err;
   
     // parse data
     wh_data.forEach(function(data) {
       data.latitude = +data.latitude;
       data.longitude = +data.longitude;
-      data.ladder_score = +data.ladder_score;
+      data.happy = +data.happy;
       
     });
   
