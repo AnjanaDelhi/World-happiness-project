@@ -66,29 +66,26 @@ def send():
 
 @app.route("/api/happy_map")
 def happy_map():
-    results = db.session.query(Country.country_name, Country.latitude, Country.longitude, Country.ladder_score).all()
+    results = session.query(Country.country_name, Country.latitude, Country.longitude, Country.ladder_score).all()
+    country_data1 = []
 
-    hover_text = [result[0] for result in results]
-    lat = [result[1] for result in results]
-    lon = [result[2] for result in results]
-    happy = [result[3] for result in results]
+    for result in results:
+        country = {}
+        country["country_name"] = result[0]
+        country["latitude"] = result[1]
+        country["longitude"] = result[2]
+        country["happy"] = result[3]
+        country_data1.append(country)
+    # hover_text = [result[0] for result in results]
+    # lat = [result[1] for result in results]
+    # lon = [result[2] for result in results]
+    # happy = [result[3] for result in results]
 
-    country_data1 = [{
-        "type": "scattergeo",
-        "locationmode": "USA-states",
-        "lat": lat,
-        "lon": lon,
-        "happiness": happy,
-        "text": hover_text,
-        "hoverinfo": "text",
-        "marker": {
-            "size": 50,
-            "line": {
-                "color": "rgb(8,8,8)",
-                "width": 1
-            },
-        }
-    }]
+    # country_data1 = [{
+    #     "lat": lat,
+    #     "lon": lon,
+    #     "happiness": happy,
+    #  }]
 
     return jsonify(country_data1)
 
