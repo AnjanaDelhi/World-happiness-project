@@ -11,25 +11,11 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/product/">
 
     <!-- Bootstrap core CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        .bd-placeholder-img {
-          font-size: 1.125rem;
-          text-anchor: middle;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-        }
-  
-        @media (min-width: 768px) {
-          .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-          }
-        }
-      </style>
-      <!-- Custom styles for this template -->
-      <link href="product.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     
 </head>
 <body style="background-color:rgb(168,220,220);">
     <nav class="site-header sticky-top py-1">
@@ -38,11 +24,10 @@
             <a class="py-2" href="#" aria-label="Product">
             <img src="WorldHappinessLogo.png" width="24" height="36" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>The World Happiness Project</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
             </a>
-          <a class="py-2 d-none d-md-inline-block" href="#">The World Happiness Project</a>
-          <a class="py-2 d-none d-md-inline-block" href="#">Home</a>
+          <a class="py-2 d-none d-md-inline-block" href="/titlepage">The World Happiness Project</a>
           <a class="py-2 d-none d-md-inline-block" href="/index">Happiness Map</a>
           <a class="py-2 d-none d-md-inline-block" href="/life_map">Life Expectancy Choropleth</a>
-          <a class="py-2 d-none d-md-inline-block" href="#"></a>
+          <a class="py-2 d-none d-md-inline-block" href="/titlepage"></a>
         </div>
     </nav>
 <div class="position-relative overflow-hidden text-center">
@@ -50,14 +35,63 @@
         <img src="HeaderImage.png" width="1050" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false">
     </a>
 </div>
-    <div class="position-relative overflow-hidden text-center bg-light">
-       <div class="col-md-5 p-lg-5 mx-auto my-5">
-      <h1 class="display-4 font-weight-normal">The World Happiness Project</h1>
-      <p class="lead font-weight-normal">What drives happiness? What societal factors play into the happiness of a country’s citizens? These are the question that our group set out to answer.</p>
-    </div>
-    <div class="product-device shadow-sm d-none d-md-block"></div>
-    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-  </div>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-5 mx-auto my-5 text-center">
+      <h1 class="display-4 font-weight-normal" align="center">The World Happiness Project</h1>
+      <p class="lead font-weight-normal" align="center">What drives happiness? What societal factors play into the happiness of a country’s citizens? These are the question that our group set out to answer.</p>
+       </div>
+</div>
 
+
+  <div class="container">
+    <div class="table-responsive">
+    <h1 align="center"><b>Analyzing the Data</b></h1>
+     <h2 align="center">Data from <a href='https://WorldHappiness.report/'>The World Happiness Report</a></h2>
+     <br />
+     <div align="center">
+      <button type="button" name="load_data" id="load_data" class="btn btn-info">Load Data</button>
+     </div>
+     <br />
+     <div id="WHR_table">
+     </div>
+    </div>
+   </div>
 </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+     $('#load_data').click(function(){
+      $.ajax({
+       url:"/static/WHR20_columns_fixed.csv",
+       dataType:"text",
+       success:function(data)
+       {
+        var world_data = data.split(/\r?\n|\r/);
+        var table_data = '<table class="table table-bordered table-striped">';
+        for(var count=0; count < world_data.length; count++)
+        {
+         var cell_data = world_data[count].split(",");
+         table_data += '<tr>';
+         for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+         {
+          if(count === 0)
+          {
+           table_data += '<th>'+cell_data[cell_count]+'</th>';
+          }
+          else
+          {
+           table_data += '<td>'+cell_data[cell_count]+'</td>';
+          }
+         }
+         table_data += '</tr>';
+        }
+        table_data += '</table>';
+        $('#WHR_table').html(table_data);
+       }
+      });
+     });
+     
+    });
+    </script>
+    
