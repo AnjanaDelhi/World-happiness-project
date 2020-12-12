@@ -1,7 +1,7 @@
 // Create map object and set default layers
 var myMap = L.map("map", {
     center: [46.2276, 2.2137],
-    zoom: 1,
+    zoom: 2,
   });
 
   L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
@@ -37,22 +37,7 @@ d3.json("/api/happy_map").then(function(wh_data, err) {
 // An array which will be used to store created cityMarkers
 //var countryMarkers = [];
 
-for (var i = 0; i < wh_data.length; i++) {
-  L.circle([wh_data[i].latitude, wh_data[i].longitude], {
-    fillOpacity: 0.5,
-    color: "red",
-    fillColor: "yellow",
-    // Setting our circle's radius equal to the output of our markerSize function
-    // This will make our marker's size proportionate to happiness
-    radius: markerSize(wh_data[i].happy*200)
-  }).bindPopup("<h1>" + wh_data[i].country_name + "</h1> <hr> <h3>Happiness score: " + Math.round(wh_data[i].happy) +  "</h1>").addTo(myMap)
-    
-  };
 
-//var countryLayer = L.layerGroup(countryMarkers);
-
-//countryLayer.addTo(myMap)
-});
 
 
 
@@ -60,5 +45,22 @@ d3.json("./static/custom.geo.json").then(function(geo_data) {
     // Once we get a response, send the data.features object to the createFeatures function
     var geo = L.geoJSON(geo_data.features);
     geo.addTo(myMap)
+    for (var i = 0; i < wh_data.length; i++) {
+      L.circle([wh_data[i].latitude, wh_data[i].longitude], {
+        fillOpacity: 0.5,
+        color: "red",
+        fillColor: "yellow",
+        // Setting our circle's radius equal to the output of our markerSize function
+        // This will make our marker's size proportionate to happiness
+        radius: markerSize(wh_data[i].happy*200)
+      }).bindPopup("<h1>" + wh_data[i].country_name + "</h1> <hr> <h3>Happiness score: " + Math.round(wh_data[i].happy) +  "</h1>").addTo(myMap)
+        
+      };
+    
+    //var countryLayer = L.layerGroup(countryMarkers);
+    
+    //countryLayer.addTo(myMap)
+    });
+
   });
   
