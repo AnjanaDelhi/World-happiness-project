@@ -39,6 +39,10 @@ Country = Base.classes.wh20
 # create route that renders index.html template
 @app.route("/")
 def home():
+    return render_template("titlepage.html")
+
+@app.route("/happy_map")
+def happy():
     return render_template("index.html")
 
 @app.route("/life_map")
@@ -88,8 +92,6 @@ def happy_map():
     #  }]
 
     return jsonify(country_data1)
-
-
 
 
 @app.route("/api/life_map")

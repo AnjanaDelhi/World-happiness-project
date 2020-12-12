@@ -22,17 +22,19 @@
         <div class="position-relative d-flex flex-column flex-md-row justify-content-between" style="background-color:rgb(255,216,9);">
             <a class="py-2 d-none d-md-inline-block" href="#"></a>
             <a class="py-2" href="#" aria-label="Product">
-            <img src="WorldHappinessLogo.png" width="24" height="36" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>The World Happiness Project</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+              
+            <img src="{{ url_for('static', filename='WorldHappinessLogo.png') }}" width="24" height="36" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>The World Happiness Project</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
             </a>
-          <a class="py-2 d-none d-md-inline-block" href="/titlepage">The World Happiness Project</a>
-          <a class="py-2 d-none d-md-inline-block" href="/index">Happiness Map</a>
+          <a class="py-2 d-none d-md-inline-block" href="/">The World Happiness Project</a>
+          <a class="py-2 d-none d-md-inline-block" href="/happy_map">Happiness Map</a>
           <a class="py-2 d-none d-md-inline-block" href="/life_map">Life Expectancy Choropleth</a>
-          <a class="py-2 d-none d-md-inline-block" href="/titlepage"></a>
+          <a class="py-2 d-none d-md-inline-block" href="/"></a>
         </div>
     </nav>
 <div class="position-relative overflow-hidden text-center">
     <a class="py-2" href="#" aria-label="The World Happiness Project">
-        <img src="HeaderImage.png" width="1050" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false">
+        
+        <img src="{{ url_for('static', filename='HeaderImage.png') }}" width="1050" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false">
     </a>
 </div>
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
