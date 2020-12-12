@@ -15,7 +15,7 @@ var myMap = L.map("map", {
   
   // Define a markerSize function that will give each city a different radius based on its population
   function markerSize(happy) {
-    return happy;
+    return happy*200;
   }
 
 d3.json("/api/happy_map").then(function(wh_data, err) {
@@ -39,18 +39,15 @@ d3.json("/api/happy_map").then(function(wh_data, err) {
 
 for (var i = 0; i < wh_data.length; i++) {
   L.circle([wh_data[i].latitude, wh_data[i].longitude], {
-    fillOpacity: 0.75,
+    fillOpacity: 0.5,
     color: "red",
-    fillColor: "purple",
+    fillColor: "yellow",
     // Setting our circle's radius equal to the output of our markerSize function
     // This will make our marker's size proportionate to happiness
-    radius: markerSize(wh_data[i].happy)})
-  
-    // loop through the cities array, create a new marker, push it to the cityMarkers array
-    //countryMarkers.push(
-      L.marker([wh_data[i].latitude, wh_data[i].longitude]).bindPopup("<h1>" + wh_data[i].country_name + "<br>" + Math.round(wh_data[i].happy) +  "</h1>").addTo(myMap)
+    radius: markerSize(wh_data[i].happy*200)
+  }).bindPopup("<h1>" + wh_data[i].country_name + "</h1> <hr> <h3>Happiness score: " + Math.round(wh_data[i].happy) +  "</h1>").addTo(myMap)
     
-      };
+  };
 
 //var countryLayer = L.layerGroup(countryMarkers);
 
