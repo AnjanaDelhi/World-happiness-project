@@ -1,3 +1,3 @@
-# World-happiness-project
+# World-happiness
 
 We chose World Happiness as our topic for project two because we found it to be an interesting and unique topic. Our plan is to look at the 156 different countries that are found on the World Happiness Report 2020 website and identify different insights. Some of the data points we are interested to see are top 10 happiest countries, if GDP is related to happiness score, if there’s a relationship between life expectancy and happiness score, and we’ll be identifying other correlations along the way.
